@@ -1,0 +1,4 @@
+--type-set=cucumber=.feature
+--type-set=yaml=.yml
+--type-set=tmstuff=.tmproj,.tm_build_errors
+--notmstuff

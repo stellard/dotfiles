@@ -1,0 +1,5 @@
+# rdebugrc
+set autolist   on
+set autoeval   on
+set autoreload on
+# EOF
