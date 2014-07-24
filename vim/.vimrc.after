@@ -1,0 +1,14 @@
+colorscheme molokai
+
+" remove trailing whitespace
+nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+" add focus on specs
+map <Leader>foc ýcýb?\(it \|describe \|context \)/ okbdoi, :focus =>ü true:ýcýKýb:kblet @/ = ""
+
+set guifont=Bitstream\ Vera\ Sans\ Mono:h14
+
+" ETL files are ruby
+au BufNewFile,BufRead *.{ctl,ebf} set filetype=ruby
+
+let g:syntastic_ruby_exec = '/Users/stellard/.rbenv/shims/ruby' " take the current ruby version specified by rbenv
