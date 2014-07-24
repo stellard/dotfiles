@@ -1,4 +1,9 @@
 --type-set=cucumber=.feature
+--type-set=rabl=.rabl
+--type-set=jbuilder=.jbuilder
+--type-set=jsx=.jsx
+--type-set=puppet=.pp
 --type-set=yaml=.yml
+--type-set=sass=.sass,.scss
 --type-set=tmstuff=.tmproj,.tm_build_errors
 --notmstuff
