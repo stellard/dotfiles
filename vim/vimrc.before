@@ -1,0 +1,4 @@
+call janus#disable_plugin('vim-snippets')
+call janus#disable_plugin('gitgutter')
+call janus#disable_plugin('ctrlp')
+

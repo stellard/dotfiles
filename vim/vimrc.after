@@ -1,4 +1,10 @@
-colorscheme molokai
+" colorscheme molokai
+
+
+
+syntax enable
+set background=dark
+colorscheme solarized
 
 " remove trailing whitespace
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
@@ -6,9 +12,50 @@ nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 " add focus on specs
 map <Leader>foc ýcýb?\(it \|describe \|context \)/ okbdoi, :focus =>ü true:ýcýKýb:kblet @/ = ""
 
-set guifont=Bitstream\ Vera\ Sans\ Mono:h14
+set guifont=Bitstream\ Vera\ Sans\ Mono:h20
 
 " ETL files are ruby
 au BufNewFile,BufRead *.{ctl,ebf} set filetype=ruby
 
+" Jbuilder files are ruby
+au BufNewFile,BufRead *.{jbuilder} set filetype=ruby
+
 let g:syntastic_ruby_exec = '/Users/stellard/.rbenv/shims/ruby' " take the current ruby version specified by rbenv
+let g:syntastic_javascript_checkers = ['eslint']
+
+"Set the guifont
+:set guifont=Menlo\ Regular:h15
+
+
+" vim-rspec-focus
+:nnoremap <leader>t :AddFocusTag<CR>
+:nnoremap <leader>r :RemoveAllFocusTags<CR>
+
+" open split window alternate rails file (ie spec/model)
+:nnoremap <leader>s :AV<CR>
+" open split window related rails file (ie controller/view)
+:nnoremap <leader>c :RV<CR>
+
+:set nowrap
+
+" speedup ctrlp searching
+"let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+"if executable('ag')
+  "let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+"endif
+"let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
+
+" Disable hover tooltips
+set noballooneval
+let g:netrw_nobeval = 1
+" fix rendering bug with scrollbar
+set guioptions+=k
+
+" mapping for fzf command t
+let g:fzf_buffers_jump = 1
+"nmap <D-r> :GFiles<cr>
+nnoremap <silent> <expr> <D-r> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":GFiles\<cr>"
+
+" tabs setting
+:set ts=2
+:set et
