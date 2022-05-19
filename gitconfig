@@ -1,0 +1,29 @@
+[include]
+  path = ~/.gitconfig.local
+[alias]
+  ci = commit
+  st = status
+  co = checkout
+  changed = show --pretty="format:" --name-only
+  unstage = reset HEAD
+  df = diff
+  lg = log -p
+  br = branch
+  sh = show -w
+  tree = log --oneline --decorate --graph
+  files = diff-tree --no-commit-id --name-only -r
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  whatadded = log --diff-filter=A
+[apply]
+  whitespace = nowarn
+[core]
+  autocrlf = input
+  editor = vim
+  pager = less -r
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+[push]
+  default = tracking
