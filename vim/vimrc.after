@@ -1,7 +1,5 @@
 " colorscheme molokai
 
-
-
 syntax enable
 set background=dark
 colorscheme solarized
@@ -10,15 +8,15 @@ colorscheme solarized
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " add focus on specs
-map <Leader>foc ýcýb?\(it \|describe \|context \)/ okbdoi, :focus =>ü true:ýcýKýb:kblet @/ = ""
+" map <Leader>foc ýcýb?\(it \|describe \|context \)/ okbdoi, :focus =>ü true:ýcýKýb:kblet @/ = ""
 
 set guifont=Bitstream\ Vera\ Sans\ Mono:h20
 
 " ETL files are ruby
 au BufNewFile,BufRead *.{ctl,ebf} set filetype=ruby
 
-" Jbuilder files are ruby
-au BufNewFile,BufRead *.{jbuilder} set filetype=ruby
+" Jbuilder and xslx template files are ruby
+au BufNewFile,BufRead *.{jbuilder,axlsx,fxlsx,jb} set filetype=ruby
 
 let g:syntastic_ruby_exec = '/Users/stellard/.rbenv/shims/ruby' " take the current ruby version specified by rbenv
 let g:syntastic_javascript_checkers = ['eslint']
@@ -37,6 +35,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 :nnoremap <leader>c :RV<CR>
 
 :set nowrap
+
 
 " speedup ctrlp searching
 "let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
@@ -59,3 +58,11 @@ nnoremap <silent> <expr> <D-r> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : ''
 " tabs setting
 :set ts=2
 :set et
+
+" fzf search 
+:set rtp+=/usr/local/opt/fzf
+
+
+" move among buffers with CTRL
+map <C-J> :bnext<CR>
+map <C-K> :bprev<CR>

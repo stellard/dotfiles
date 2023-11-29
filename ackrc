@@ -13,6 +13,7 @@
 --ignore-dir=lib/ruby
 --ignore-dir=public/packs
 --ignore-dir=spec/fixtures
+--ignore-dir=.aws-sam
 --ignore-dir=public/uploads
 --ignore-dir=vendor/assets
 --ignore-dir=vendor/bundle

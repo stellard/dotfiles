@@ -14,7 +14,7 @@ export PATH=$PATH:$EC2_HOME/bin
 export PATH=$PATH:/Applications/LibreOffice.app/Contents/MacOS
 #export EC2_PRIVATE_KEY=`ls -1 $EC2_HOME/pk-*.pem`
 #export EC2_CERT=`ls -1 $EC2_HOME/cert-*.pem`
-export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
+#export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
 
 export HUSKY_HOME=/Users/stellard/projects/kuji/fido
 export HUSKY_ENV=development
@@ -53,27 +53,14 @@ if [ -f ~/bash_completion.d/knife ]; then
   . ~/bash_completion.d/knife
 fi
 
- #export GIT_PS1_SHOWDIRTYSTATE=true
- #export GIT_PS1_SHOWUPSTREAM="auto"
-# 
- export PS1='\[\033[01;34m\]\w\[\033[00;35m\]$(__git_ps1 " (%s)")\[\033[00m\]\$ '
- export TERM="xterm-color"
- export CLICOLOR=1
- export LSCOLORS=ExFxCxDxBxegedabagacad
-
 #for f in ~/.app_config/*; do source $f; done
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+#[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 export NVM_DIR="/Users/stellard/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 
-export HISTSIZE=1000000
-export HISTFILESIZE=1000000000
-
-export PATH="$HOME/.cargo/bin:$PATH"
-
-
+#export PATH="$HOME/.cargo/bin:$PATH"
 
 #invoke nvm use when switching dir
 find-up () {
@@ -128,9 +115,20 @@ cdnvm(){
 }
 alias cd='cdnvm'
 
+
+# Eternal bash history.
+# ---------------------
+# Undocumented feature which sets the size to "unlimited".
+# http://stackoverflow.com/questions/9457233/unlimited-bash-history
 export HISTSIZE=-1
 export HISTFILESIZE=-1
-
+export HISTTIMEFORMAT="[%F %T] "
+# Change the file location because certain bash sessions truncate .bash_history file upon close.
+# http://superuser.com/questions/575479/bash-history-truncated-to-500-lines-on-each-login
+export HISTFILE=~/.bash_eternal_history
+# Force prompt to write history after every command.
+# http://superuser.com/questions/20900/bash-history-loss
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
@@ -140,3 +138,10 @@ if [ -f '/Users/stellard/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/U
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/stellard/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/stellard/Downloads/google-cloud-sdk/completion.bash.inc'; fi
+
+
+export PS1='\[\033[01;35m\]\w\[\033[00;35m\]$(__git_ps1 " (%s)")\[\033[00m\]\$ '
+
+
+# Set colors to match iTerm2 Terminal Colors
+export TERM=xterm-256color
