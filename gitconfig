@@ -21,9 +21,13 @@
   autocrlf = input
   editor = vim
   pager = less -r
+	attributesfile = ~/.gitattributes
 [color]
   diff = auto
   status = auto
   branch = auto
 [push]
   default = tracking
+[merge "merge-structure-sql"]
+	name = Rails structure.sql merge driver
+	driver = git-merge-structure-sql %A %O %B
